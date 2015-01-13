@@ -22,7 +22,7 @@ void draw() {
  if (mySwitch>0){
  /*The readData function can be found later in the code.
  This is the call to read a CSV file on the computer hard-drive. */
- readData("testingData.txt");
+ readData("C:/Users/kalyn/ArduinoDataVisualization/processing_send_csv_as_serial");
  
  /*The following switch prevents continuous reading of the text file, until
  we are ready to read the file again. */

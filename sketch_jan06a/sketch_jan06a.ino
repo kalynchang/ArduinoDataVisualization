@@ -15,6 +15,7 @@
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
+char incomingByte; // data received from the serial port 
 
 // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
 // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
@@ -22,10 +23,11 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIXEL_PIN, NEO_GRB + NEO
 // on a live circuit...if you must, connect GND first.
 
 void setup() {
+  pinMode (PIXEL_PIN, OUTPUT);  
   Serial.begin(9600);     // opens serial port for reading file, sets data rate to 9600 bps
   pixels.begin();
   pixels.show(); // Initialize all pixels to 'off'
-  Serial.printlnTa("fjjwfiw");
+  // Serial.printlnTa("fjjwfiw");
 }
 
 // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
@@ -36,7 +38,7 @@ void setup() {
 //supposed to flash off red off red
 //uint32_t stable[] = {pixels.Color(0, 0, 0), pixels.Color(0, 0, 0),pixels.Color(0, 0, 0),pixels.Color(0, 0, 0),pixels.Color(0, 0, 0),pixels.Color(0, 0, 255),pixels.Color(0, 0, 255),pixels.Color(0, 0, 255),pixels.Color(0, 0, 255),pixels.Color(0, 0, 255)};
 
-int incomingByte = 0;
+// int incomingByte = 0;
 
 void loop() {
   lightController(500);
